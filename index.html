@@ -55,7 +55,7 @@
 </aside>
 
 <main>
-<section id="main" class="underwater-hero">
+<section id="main" class="page-view is-active underwater-hero">
 <div class="sun-rays"></div>
 
 <div class="main-hero-container">
@@ -73,7 +73,7 @@
 </section>
 
 
-    <section id="book">
+    <section id="book" class="page-view page-section">
     <div class="section-header">
         <span class="section-num">damso</span>
         <h2 class="section-title">책 <strong>소개</strong></h2>
@@ -90,18 +90,16 @@
             <br><br>
             <i>너를 나눈다, 나를 나눈다, 우리를 나눈다.</i>
             </p>
-            <br><br>
-
             <p class="book-desc-text2">
             글로 전하는 정성인 ‘필담’과 마주 앉아 나누는 온기인 ‘담소’.
             <br><br>
-            그 경계 어딘가에서 우리는 서로의 조각들을 정성껏 나누어 담습니다.
-            너무 가볍지도, 그렇다고 너무 무겁지도 않은 딱 기분 좋은 거리에서, 우리가 나눌 수 있는 가장 다정한 이야기들을 꺼내어 놓습니다.
+            그 경계 어딘가에서 우리는 서로의 조각들을 정성껏 나누어 담습니다.<br>
+            너무 가볍지도, 그렇다고 너무 무겁지도 않은 딱 기분 좋은 거리에서, 우리가 나눌 수 있는 가장 다정한 이야기들을 꺼내어 놓습니다.<br>
             누군가에겐 포근한 공감으로, 누군가에겐 깊은 위로로, 
-            또 누군가에게는 새로운 생각의 씨앗으로 다가갈 이 에세이 같은 소설은 우리 삶의 다양한 풍경을 비춥니다.
+            또 누군가에게는 새로운 생각의 씨앗으로 다가갈 이 에세이 같은 소설은 우리 삶의 다양한 풍경을 비춥니다.<br>
             소소한 일상 속에서 자신도 모르게 높게 쌓아 올린 마음의 담장들.
             <br><br>
-            작가 김희는 이 책을 통해 그 담을 아주 조금만 낮추고, 가만히 서로의 목소리에 귀를 기울여 보길 제안합니다.
+            작가 김희는 이 책을 통해 그 담을 아주 조금만 낮추고, 가만히 서로의 목소리에 귀를 기울여 보길 제안합니다.<br>
             '너를 나누고, 나를 나누며, 마침내 우리가 되는 시간.' 
             도서 ‘담소’가 당신의 마음에 따스한 볕을 드리웁니다.
             </p><br>
@@ -109,8 +107,8 @@
     </div>
     </section>
 
-    <section id="author">
-    <div class="section-header">
+    <section id="author" class="page-view page-section author-section">
+    <div class="section-header author-section-header">
         <span class="section-num">damso</span>
         <h2 class="section-title">작가 <strong>소개✍🏻</strong></h2>
     </div>
@@ -127,8 +125,9 @@
             </p>
             <br><br>
         
-        <p class="book-desc-text2">그녀의 문장들은 화려하지 않지만, 소소한 일상 속에서 우리가 놓치고 지나쳤던 마음의 조각들을 소중히 길어 올립니다.
-            "내가 먼저 나를 나눌 때, 비로소 너의 이야기가 들리기 시작한다"는 믿음으로, 그녀는 오늘도 종이 위에 따스한 대화의 자리를 마련합니다.
+        <p class="book-desc-text2">그녀의 문장들은 화려하지 않지만, 소소한 일상 속에서 우리가 놓치고 지나쳤던 마음의 조각들을 소중히 길어 올립니다. <br>
+            "내가 먼저 나를 나눌 때, 비로소 너의 이야기가 들리기 시작한다"는 믿음으로,<br>
+            그녀는 오늘도 종이 위에 따스한 대화의 자리를 마련합니다.
             <br>
             작가 김희가 건네는 이 다정한 담소에 여러분을 초대합니다.
             <br>
@@ -138,7 +137,7 @@
     </div>
     </section>
 
-    <section id="publisher">
+    <section id="publisher" class="page-view page-section publisher-section">
     <div class="section-header">
         <span class="section-num">damso</span>
         <h2 class="section-title">출판사 <strong>소개</strong></h2></div>
@@ -240,7 +239,7 @@
 </div>
     </section>
 
-    <section id="store">
+    <section id="store" class="page-view page-section store-section">
     <div class="section-header">
         <span class="section-num">damso</span>
         <h2 class="section-title">도서 <strong>구매처🛒📚</strong></h2>
@@ -303,7 +302,7 @@
     </div>
     </section>
 
-    <section id="contact" class="contact-section">
+    <section id="contact" class="page-view page-section contact-section">
     <!-- 상단 타이틀 -->
     <div class="section-title">
         <span class="sub-logo">damso</span>
@@ -372,6 +371,44 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
 
 <script>
+const pageViews = document.querySelectorAll('.page-view');
+const pageLinks = document.querySelectorAll('a[href^="#"]');
+
+function showPage(pageId, updateUrl = true) {
+    const targetPage = document.getElementById(pageId);
+
+    if (!targetPage || !targetPage.classList.contains('page-view')) {
+        return;
+    }
+
+    pageViews.forEach((page) => page.classList.remove('is-active'));
+    targetPage.classList.add('is-active');
+
+    if (updateUrl) {
+        history.pushState(null, '', `#${pageId}`);
+    }
+
+    window.scrollTo({ top: 0, behavior: 'auto' });
+}
+
+pageLinks.forEach((link) => {
+    link.addEventListener('click', (event) => {
+        const pageId = link.getAttribute('href').slice(1);
+
+        if (document.getElementById(pageId)?.classList.contains('page-view')) {
+            event.preventDefault();
+            showPage(pageId);
+        }
+    });
+});
+
+const initialPageId = window.location.hash.slice(1) || 'main';
+showPage(initialPageId, false);
+
+window.addEventListener('popstate', () => {
+    showPage(window.location.hash.slice(1) || 'main', false);
+});
+
 $(document).ready(function() {
     $('#main').ripples({
     resolution: 512,
